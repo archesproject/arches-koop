@@ -1,0 +1,28 @@
+{
+  "name": "arches-koop",
+  "version": "0.1.0",
+  "description": "Arches Koop application",
+  "repository": "git@github.com:archesproject/arches-koop.git",
+  "author": "Arches Project Team",
+  "license": "AGPLv3.0",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha 'test/**/*.test.js'",
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "config": "^3.1.0",
+    "koop": "^3.13.0"
+  },
+  "devDependencies": {
+    "@koopjs/cli": "^0.5.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  },
+  "repository": "",
+  "private": true,
+  "keywords": [
+    "koop",
+    "app"
+  ]
+}

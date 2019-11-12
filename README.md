@@ -1,2 +1,1 @@
-# arches-koop
-Arches Koop application
+# arches-koop-application
