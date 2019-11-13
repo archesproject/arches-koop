@@ -26,6 +26,18 @@ Add a config file for your environment(s) (development, production, etc) to `/co
 }
 ```
 
+With the server running at localhost:8080, an example layer URL would be: http://localhost:8080/arches/consultations/application_areas/FeatureServer/5
+
+In this example: “consultations” is the host name, “application_areas” is the layer name, and 5 indicates the geometry type (MultiPolygon)
+
+The geometry type options are as follows:
+- 0: Point
+- 1: LineString
+- 2: Polygon
+- 3: MultiPoint
+- 4: MultiLineString
+- 5: MultiPolygon
+
 ### Dev Server
 
 This project by default uses the [Koop CLI](https://github.com/koopjs/koop-cli) to set up the dev server. You can start the server by running:
