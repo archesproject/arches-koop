@@ -30,11 +30,15 @@ Model.prototype.getData = function(req, callback) {
             
         }
     }
+    const nodeId = req.params.id
+    const host = req.params.host
+    const qs = config.archesHosts[host].layers[nodeId]
     
-    request(`${config.archesURL}/geojson`, (err, res, body) => {
+    request({
+        url: `${config.archesHosts[host].url}/geojson?geometry_type=${geometryType}`,
+        qs: config.archesHosts[host].layers[nodeId]
+    }, (err, res, geojson) => {
         if (err) return callback(err)
-        
-        const geojson = translate(body, geometryType)
 
         geojson.ttl = 30;
 
@@ -45,20 +49,6 @@ Model.prototype.getData = function(req, callback) {
 
         callback(null, geojson)
     })
-}
-
-function translate(input, geometryType) {
-    var features = []
-    let i = 1;
-    input.features.forEach(function(feature) {
-        if (feature.geometry.type === geometryType || !geometryType) {
-            features.push(feature);
-        }
-    })
-    return {
-        type: 'FeatureCollection',
-        features: features
-    }
 }
 
 module.exports = Model

@@ -12,11 +12,8 @@ plugins.forEach((plugin) => {
 koop.register({
     type: 'provider',
     name: 'arches',
-    hosts: false,
-    disableIdParam: true,
-    Controller: function(model) {
-        this.model = model
-    },
+    hosts: true,
+    disableIdParam: false,
     Model: require('./model')
 })
 
