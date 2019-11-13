@@ -7,26 +7,26 @@ const config = require('config')
 function Model(koop) {}
 
 Model.prototype.getData = function(req, callback) {
-    let geometryType;
+    let geometryType
     if (req.params.layer) {
         switch (req.params.layer) {
             case '1':
-                geometryType = 'LineString';
-                break;
+                geometryType = 'LineString'
+                break
             case '2':
-                geometryType = 'Polygon';
-                break;
+                geometryType = 'Polygon'
+                break
             case '3':
-                geometryType = 'MultiPoint';
-                break;
+                geometryType = 'MultiPoint'
+                break
             case '4':
-                geometryType = 'MultiLineString';
-                break;
+                geometryType = 'MultiLineString'
+                break
             case '5':
-                geometryType = 'MultiPolygon';
-                break;
+                geometryType = 'MultiPolygon'
+                break
             default:
-                geometryType = 'Point';
+                geometryType = 'Point'
             
         }
     }
@@ -39,12 +39,17 @@ Model.prototype.getData = function(req, callback) {
         qs: config.archesHosts[host].layers[nodeId]
     }, (err, res, geojson) => {
         if (err) return callback(err)
+        
+        geojson.features.forEach(function(feature) {
+            feature.properties.id = feature.id
+        })
 
-        geojson.ttl = 30;
+        geojson.ttl = config.cacheTimeout
 
         geojson.metadata = {
             title: 'Koop Arches Provider',
-            geometryType: geometryType
+            geometryType: geometryType,
+            idField: 'id'
         }
 
         callback(null, geojson)

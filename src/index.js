@@ -14,6 +14,7 @@ koop.register({
     name: 'arches',
     hosts: true,
     disableIdParam: false,
+    idField: 'id',
     Model: require('./model')
 })
 
