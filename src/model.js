@@ -3,14 +3,14 @@ const request = require('request').defaults({
     json: true
 })
 const config = require('config')
-const geometryTypes = {
-    0: 'Point',
-    1: 'LineString',
-    2: 'Polygon',
-    3: 'MultiPoint',
-    4: 'MultiLineString',
-    5: 'MultiPolygon'
-}
+const geometryTypes = [
+    'Point',
+    'LineString',
+    'Polygon',
+    'MultiPoint',
+    'MultiLineString',
+    'MultiPolygon'
+]
 
 function Model(koop) {}
 
