@@ -35,6 +35,8 @@ Model.prototype.getData = function(req, callback) {
         geojson.ttl = config.cacheTimeout
 
         geojson.metadata = {
+            name: layerName,
+            displayField: qs.displayField,
             title: 'Koop Arches Provider',
             geometryType: geometryType,
             idField: 'id'
