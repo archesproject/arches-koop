@@ -1,0 +1,17 @@
+I'm using http://www.arcgis.com/home/content.html as a way to test adding an authenticated service (I'm not sure if that's the best way or not, see the recordit below)
+
+click the "Add Item" button on the top left and then click "From Url" 
+
+paste in the URL: http://localhost:8080/arches/test/geoms/FeatureServer/2
+
+notice how it asks for username and password
+
+I was using admin/amdin
+
+at that point an error pops up
+
+if you look at the console for the koop server you'll notice only the "authorize" method is called 
+
+if you try and manually get a token by hitting this url http://localhost:8080/arches/tokens?username=admin&password=admin then you'll notice that the "authenticate" method is hit
+
+https://recordit.co/7rLrILoxR2
