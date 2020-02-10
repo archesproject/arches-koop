@@ -26,4 +26,5 @@ koop.register({
 
 routes.forEach((route) => koop.server[route.method.toLowerCase()](route.path, route.controller))
 
-koop.server.listen(config.port, () => koop.log.info(`Koop server listening at ${config.port}`))
+const port = config.port || 8080;
+koop.server.listen(port, () => koop.log.info(`Koop server listening at ${port}`))
