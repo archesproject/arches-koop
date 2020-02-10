@@ -10,7 +10,8 @@ plugins.forEach((plugin) => {
 })
 
 // Configure the auth plugin by executing its exported function with requried args
-const auth = auth_direct('pass-in-your-secret', `${__dirname}/user_store.json`, {useHttp:true})
+// const auth = auth_direct('pass-in-your-secret', `${__dirname}/user_store.json`, {useHttp:true})
+let auth = require('@koopjs/auth-direct-file')('pass-in-your-secret', `${__dirname}/user_store.json`)
 
 // Register the auth plugin
 koop.register(auth)

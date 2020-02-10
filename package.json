@@ -12,9 +12,9 @@
     "debug": "node --inspect src/index.js"
   },
   "dependencies": {
+    "@koopjs/auth-direct-file": "^2.0.0",
     "config": "^3.1.0",
-    "koop": "^3.13.0",
-    "@koopjs/auth-direct-file": "^2.0.0"
+    "koop": "^3.13.0"
   },
   "devDependencies": {
     "@koopjs/cli": "^0.5.0",
