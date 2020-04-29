@@ -30,6 +30,7 @@ Model.prototype.getData = function(req, callback) {
         
         geojson.features.forEach(function(feature) {
             feature.properties.id = feature.id
+            if (qs.nodeid) feature.properties.nodeid = qs.nodeid
         })
 
         geojson.ttl = config.cacheTimeout
