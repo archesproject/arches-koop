@@ -19,7 +19,7 @@ Model.prototype.getData = function(req, callback) {
     const layerName = req.params.id
     const host = req.params.host
     const qs = Object.assign({
-        'geometry_type': geometryType
+        'type': geometryType
     }, config.archesHosts[host].layers[layerName])
     
     request({

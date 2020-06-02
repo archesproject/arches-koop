@@ -106,3 +106,4 @@ dist
 config/development.json
 config/production.json
 *.sublime-*
+.vscode/*
