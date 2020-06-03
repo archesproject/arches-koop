@@ -30,6 +30,8 @@ Model.prototype.getData = function(req, callback) {
         
         geojson.features.forEach(function(feature) {
             feature.properties.id = feature.id
+            feature.properties.OBJECTID = feature.properties.id
+            delete feature.properties.id
             if (qs.nodeid) feature.properties.nodeid = qs.nodeid
         })
 
