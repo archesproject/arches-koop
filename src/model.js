@@ -42,7 +42,7 @@ Model.prototype.getData = function(req, callback) {
             displayField: qs.displayField,
             title: 'Koop Arches Provider',
             geometryType: geometryType,
-            idField: 'id'
+            idField: 'OBJECTID'
         }
 
         callback(null, geojson)
