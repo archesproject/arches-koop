@@ -1,5 +1,4 @@
 {
-    "port": 8080,
     "cacheTimeout": 100,
     "archesHosts": {
         "consultations": {
