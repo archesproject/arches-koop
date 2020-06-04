@@ -13,12 +13,14 @@ Add a config file for your environment(s) (development, production, etc) to `/co
                 "consultations": {
                     "nodeid": "8d41e4d6-a250-11e9-accd-00224800b26d",
                     "nodegroups":"8d41e4ab-a250-11e9-87d1-00224800b26d,8d41e4c0-a250-11e9-a7e3-00224800b26d",
-                    "use_display_values": true
+                    "use_display_values": true,
+                    "type": "Point"
                 },
                 "application_areas": {
                      "nodeid": "6c923175-53d9-11e9-8c78-dca90488358a",
                      "nodegroups": "336d34e3-53c3-11e9-ba5f-dca90488358a,5fea7890-9cbb-11e9-ae86-00224800b26d",
-                     "use_display_values": true
+                     "use_display_values": true,
+                    "type": "Polygon"
                 }
             }
         }
@@ -26,17 +28,9 @@ Add a config file for your environment(s) (development, production, etc) to `/co
 }
 ```
 
-With the server running at localhost:8080, an example layer URL would be: http://localhost:8080/arches/consultations/application_areas/FeatureServer/5
+With the server running at localhost:8080, an example layer URL would be: http://localhost:8080/arches/consultations/application_areas/FeatureServer/0
 
-In this example: “consultations” is the host name, “application_areas” is the layer name, and 5 indicates the geometry type (MultiPolygon)
-
-The geometry type options are as follows:
-- 0: Point
-- 1: LineString
-- 2: Polygon
-- 3: MultiPoint
-- 4: MultiLineString
-- 5: MultiPolygon
+In this example: “consultations” is the host name, “application_areas” is the layer name
 
 ### Dev Server
 
