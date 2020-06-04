@@ -15,12 +15,11 @@ const geometryTypes = [
 function Model(koop) {}
 
 Model.prototype.getData = function(req, callback) {
-    const geometryType = geometryTypes[req.params.layer]
     const layerName = req.params.id
     const host = req.params.host
-    const qs = Object.assign({
-        'type': geometryType
-    }, config.archesHosts[host].layers[layerName])
+    const qs = Object.assign({}, config.archesHosts[host].layers[layerName])
+    const geometryType = qs.type || geometryTypes[req.params.layer]
+    qs.type = geometryType
     
     request({
         url: `${config.archesHosts[host].url}/geojson`,
