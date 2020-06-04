@@ -2,7 +2,7 @@
 
 ### Configuration
 
-Add a config file for your environment(s) (development, production, etc) to `/config/`, and define a property called `"archesHosts"` with a property for each named host containing a `"url"` and an array of `"layers"`. Each later should define parameters to be passed to the Arches [GeoJSON API](https://arches.readthedocs.io/en/latest/api/#geojson).  For example, you could add `/config/development.json` with the following contents:
+Add a config file for your environment(s) (development, production, etc) to `/config/`, and define a property called `"archesHosts"` with a property for each named host containing a `"url"` and an array of `"layers"`. Each layer should define parameters to be passed to the Arches [GeoJSON API](https://arches.readthedocs.io/en/latest/api/#geojson).  For example, you could add `/config/development.json` with the following contents:
 
 ```json
 {
