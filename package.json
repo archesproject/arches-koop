@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "config": "^3.1.0",
-    "koop": "^3.13.0"
+    "koop": "^4.1.0"
   },
   "devDependencies": {
     "@koopjs/cli": "^0.5.0",
