@@ -33,6 +33,7 @@ Model.prototype.getData = function(req, callback) {
         if (err) return callback(err)
         
         geojson.features.forEach(function(feature) {
+            if (qs.nodeid) feature.properties.nodeid = qs.nodeid
             if (propertyMap) {
                 let properties = {}
                 for (incomingKey in propertyMap) {
