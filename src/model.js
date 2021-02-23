@@ -19,6 +19,11 @@ Model.prototype.getData = function(req, callback) {
     const host = req.params.host
     const qs = Object.assign({}, config.archesHosts[host].layers[layerName])
     const geometryType = qs.type || geometryTypes[req.params.layer]
+    let propertyMap = null
+    if (qs.properties) {
+        propertyMap = qs.properties
+        delete qs.properties
+    }
     qs.type = geometryType
     
     request({
@@ -28,10 +33,17 @@ Model.prototype.getData = function(req, callback) {
         if (err) return callback(err)
         
         geojson.features.forEach(function(feature) {
+            if (propertyMap) {
+                let properties = {}
+                for (incomingKey in propertyMap) {
+                    let outgoingKey = propertyMap[incomingKey]
+                    properties[outgoingKey] = feature.properties[incomingKey] || null;
+                }
+                feature.properties = properties;
+            }
             feature.properties.id = feature.id
             feature.properties.OBJECTID = feature.properties.id
             delete feature.properties.id
-            if (qs.nodeid) feature.properties.nodeid = qs.nodeid
         })
 
         geojson.ttl = config.cacheTimeout
