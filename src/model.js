@@ -36,7 +36,7 @@ Model.prototype.getData = function(req, callback) {
             if (qs.nodeid) feature.properties.nodeid = qs.nodeid
             if (propertyMap) {
                 let properties = {}
-                for (incomingKey in propertyMap) {
+                for (let incomingKey in propertyMap) {
                     let outgoingKey = propertyMap[incomingKey]
                     properties[outgoingKey] = feature.properties[incomingKey] || null;
                 }
