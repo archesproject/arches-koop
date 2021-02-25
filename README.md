@@ -2,7 +2,11 @@
 
 ### Configuration
 
-Add a config file for your environment(s) (development, production, etc) to `/config/`, and define a property called `"archesHosts"` with a property for each named host containing a `"url"` and an array of `"layers"`. Each layer should define parameters to be passed to the Arches [GeoJSON API](https://arches.readthedocs.io/en/latest/api/#geojson).  For example, you could add `/config/development.json` with the following contents:
+Add a config file for your environment(s) (development, production, etc) to `/config/`, and define a property called `"archesHosts"` with a property for each named host containing a `"url"` and an array of `"layers"`. Each layer should define parameters to be passed to the Arches [GeoJSON API](https://arches.readthedocs.io/en/latest/api/#geojson).
+
+There is one custom property not in the GeoJSON API which you can attach to properties to ensure a consistent schema in features.  This property is called `properties` and should be an object that maps incoming property names from the GeoJSON API to outgoing property names in the koop service.  If this property is included, 
+
+For example, you could add `/config/development.json` with the following contents:
 
 ```json
 {
@@ -17,10 +21,13 @@ Add a config file for your environment(s) (development, production, etc) to `/co
                     "type": "Point"
                 },
                 "application_areas": {
-                     "nodeid": "6c923175-53d9-11e9-8c78-dca90488358a",
-                     "nodegroups": "336d34e3-53c3-11e9-ba5f-dca90488358a,5fea7890-9cbb-11e9-ae86-00224800b26d",
-                     "use_display_values": true,
-                    "type": "Polygon"
+                    "nodeid": "6c923175-53d9-11e9-8c78-dca90488358a",
+                    "nodegroups": "336d34e3-53c3-11e9-ba5f-dca90488358a,5fea7890-9cbb-11e9-ae86-00224800b26d",
+                    "use_display_values": true,
+                    "type": "Polygon",
+                    "properties": {
+                        "incoming_property_name": "outgoing_attribute_name"
+                    }
                 }
             }
         }
