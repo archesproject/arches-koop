@@ -38,7 +38,12 @@ Model.prototype.getData = function(req, callback) {
                 let properties = {}
                 for (let incomingKey in propertyMap) {
                     let outgoingKey = propertyMap[incomingKey]
-                    properties[outgoingKey] = feature.properties[incomingKey] || null;
+                    if (Array.isArray(feature.properties[incomingKey])) {
+                        properties[outgoingKey] = feature.properties[incomingKey].join(',')
+                    }
+                    else {
+                        properties[outgoingKey] = feature.properties[incomingKey] || null;
+                    }
                 }
                 feature.properties = properties;
             }
